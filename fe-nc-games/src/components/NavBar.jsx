@@ -4,8 +4,7 @@ function Navbar() {
   console.log('in the Navbar function');
   return (
     <>
-      <h3 className='box'>This is in the Navbar</h3>
-      <section className='box'>
+      <section >
         <Link to="/">
           <button className='box'>Reviews</button>
         </Link>

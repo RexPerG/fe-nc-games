@@ -1,3 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/022/088/779/original/monopoly-board-games-element-background-free-vector.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -7,13 +17,27 @@
 .box {
   font-size: 18px;
   color: #292b2c;
-  background-color: #fff;
+  background-color: #67aad1;
   padding: 0 20px;
   border: 2px solid black;
+  font-size: 1vw;
+}
+
+.header {
+  height: 25%;
+  width: 25%;
 }
 
 #wrapper {
   text-align: "center";
   margin: "0 auto";
   margin-top: "50px"
+}
+.card {
+  font-size: 14px;
+  color: #292b2c;
+  background-color: #fff;
+  padding: 0 20px;
+  border: 2px solid black;
+  background-color: rgb(209, 201, 92);
 }

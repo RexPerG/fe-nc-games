@@ -7,7 +7,7 @@ function Header() {
   console.log('in the Header function');
   return (
     <>
-      <h2 className='box'>This is in the Header</h2>
+      <img className='header' src="https://boardgamereview.co.uk/wp-content/uploads/2020/01/BoardGameReviewNOBG.png" alt="Logo"/>
       <Navbar />
     </>
   );

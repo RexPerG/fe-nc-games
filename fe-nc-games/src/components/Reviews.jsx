@@ -6,7 +6,7 @@ function Reviews () {
 
 return (
     <section className='box'>
-        <h2 className='box'>Reviews</h2>
+        <h2>Reviews</h2>
         <ReviewList />
     </section>
 )

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import ReviewCard from '../ReviewCard';
+import ReviewCard from './ReviewCard';
 
 function ReviewList() {
   const [reviewList, setReviewList] = useState([]);
@@ -19,9 +19,9 @@ function ReviewList() {
 
   return (
     <>
-        <section className="box">
+        <section>
             { reviewList.map( review => {
-                return <ReviewCard key={review.review_id} title={review.title}  owner={review.owner} img_url={review.review_img_url} category={review.category}/>
+                return <ReviewCard key={review.review_id} title={review.title}  owner={review.owner} review_img_url={review.review_img_url} votes={review.votes}category={review.category}/>
             })}
         </section>
     </>

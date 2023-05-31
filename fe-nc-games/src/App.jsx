@@ -9,7 +9,6 @@ function App() {
   return (
     <BrowserRouter>
       <>
-        <h1 className='box'>This is in the App</h1>
         <Header />
         <Routes>
           <Route path="/" element={<Reviews />} />
