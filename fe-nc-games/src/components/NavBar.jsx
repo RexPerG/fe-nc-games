@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 function Navbar() {
-  console.log('in the Navbar function');
   return (
     <>
       <section >

@@ -7,11 +7,13 @@ function ReviewList() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('https://fe-nc-games.onrender.com/api/reviews').then((response) => {
-      setReviewList(response.data.reviews);
-      setLoading(false);
-    });
-  });
+    axios
+      .get('https://fe-nc-games.onrender.com/api/reviews')
+      .then((response) => {
+        setReviewList(response.data.reviews);
+        setLoading(false);
+      });
+  }, []);
 
   if (isLoading) {
     return <p>Loading Items...</p>;
@@ -19,11 +21,21 @@ function ReviewList() {
 
   return (
     <>
-        <section>
-            { reviewList.map( review => {
-                return <ReviewCard key={review.review_id} title={review.title}  owner={review.owner} review_img_url={review.review_img_url} votes={review.votes}category={review.category}/>
-            })}
-        </section>
+      <section>
+        {reviewList.map((review) => {
+          return (
+            <ReviewCard
+              key={review.review_id}
+              review_id={review.review_id}
+              title={review.title}
+              owner={review.owner}
+              review_img_url={review.review_img_url}
+              votes={review.votes}
+              category={review.category}
+            />
+          );
+        })}
+      </section>
     </>
   );
 }
