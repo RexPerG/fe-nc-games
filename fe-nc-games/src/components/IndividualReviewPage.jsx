@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import IndividualReviewDetails from './IndividualReviewDetails';
 import { useEffect, useState } from 'react';
-import axios from'axios'
+import axios from 'axios';
+import CommentsList from './CommentsList';
 
 function IndividualReviewPage() {
   const { review_id } = useParams();
@@ -15,7 +16,6 @@ function IndividualReviewPage() {
       .then((response) => {
         setReviewDetails(response.data.review);
         setLoading(false);
-        console.log(response.data.review)
       });
   }, [review_id]);
 
@@ -26,7 +26,7 @@ function IndividualReviewPage() {
   return (
     <section className="box">
       <h2>Review Details</h2>
-      <section >
+      <section>
         <IndividualReviewDetails
           key={reviewDetails.review_id}
           review_img_url={reviewDetails.review_img_url}
@@ -40,10 +40,14 @@ function IndividualReviewPage() {
           created_at={reviewDetails.created_at}
         />
       </section>
-      <section className="box"> This will be a list of the comments</section>
-      {/* <IndividualReviewComments /> */}
-      <input type="text" typeof="onSubmit" />
-      <button>Add New Comment</button>
+      <section className="box">
+      <h2>Comments</h2>
+        <CommentsList key={review_id} />
+      </section>
+      <section>
+        <input type="text" typeof="onSubmit" />
+        <button>Add New Comment</button>
+      </section>
     </section>
   );
 }
