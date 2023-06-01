@@ -40,7 +40,7 @@ function IndividualReviewPage() {
           created_at={reviewDetails.created_at}
         />
       </section>
-      <section className="box">
+      <section >
       <h2>Comments</h2>
         <CommentsList key={review_id} />
       </section>
