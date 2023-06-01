@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import CommentCard from './CommentCard';
+import getComments from '../utils/apiRequests';
 
 function CommentsList() {
   const [commentsList, setCommentsList] = useState([]);
@@ -9,12 +10,11 @@ function CommentsList() {
   const { review_id } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`https://fe-nc-games.onrender.com/api/reviews/${review_id}/comments`)
-      .then((response) => {
-        setCommentsList(response.data);
-        setLoading(false);
-      });
+    getComments(review_id)
+    .then((response) => {
+      setCommentsList(response.data);
+      setLoading(false);
+    });
   }, []);
 
   if (isLoading) {
