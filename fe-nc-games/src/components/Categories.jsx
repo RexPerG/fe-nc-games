@@ -1,5 +1,5 @@
 function Categories() {
-  console.log('in the Categories function');
+
   return (
     <section>
       <h2 className="box">Select Review Category</h2>

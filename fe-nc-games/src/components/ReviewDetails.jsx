@@ -1,8 +1,8 @@
-import IndividualReviewPage from "./components/IndividualReviewPage";
+import IndividualReviewPage from "./IndividualReviewPage";
 
 
 function ReviewDetails () {
-    console.log('in the Review Details')
+
 
 
 return (
