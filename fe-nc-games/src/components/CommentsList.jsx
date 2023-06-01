@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import CommentCard from './CommentCard';
-import getComments from '../utils/apiRequests';
+import getComments from '../utils/getComments';
 
 function CommentsList() {
   const [commentsList, setCommentsList] = useState([]);
@@ -18,7 +17,7 @@ function CommentsList() {
   }, []);
 
   if (isLoading) {
-    return <h2>Loading Items...</h2>;
+    return <p className='box'>Loading Items...</p>;
   }
   
   if (commentsList.length === 0) {
