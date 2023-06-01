@@ -18,25 +18,20 @@ function CommentsList() {
   }, []);
 
   if (isLoading) {
-    return <p>Loading Items...</p>;
+    return <h2>Loading Items...</h2>;
+  }
+  
+  if (commentsList.length === 0) {
+    return <p>No comments yet, why not add one?</p>
   }
 
   return (
     <>
-      <section>
-        {commentsList.map((comment) => {
-          return (
-            <CommentCard
-              key={comment.comment_id}
-              author={comment.author}
-              body={comment.body}
-              comment_id={comment.comment_id}
-              created_at={comment.created_at}
-              votes={comment.votes}
-            />
-          );
-        })}
-      </section>
+<section>
+      {commentsList.map((comment) => (
+        <CommentCard key={comment.comment_id} {...comment} />
+      ))}
+    </section>
     </>
   );
 }

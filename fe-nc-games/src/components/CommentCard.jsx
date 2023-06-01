@@ -1,4 +1,5 @@
 function CommentCard({ comment_id, author, body, votes, created_at }) {
+  
   return (
     <>
       <section className="card">

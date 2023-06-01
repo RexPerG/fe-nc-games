@@ -23,17 +23,7 @@ function ReviewList() {
     <>
       <section>
         {reviewList.map((review) => {
-          return (
-            <ReviewCard
-              key={review.review_id}
-              review_id={review.review_id}
-              title={review.title}
-              owner={review.owner}
-              review_img_url={review.review_img_url}
-              votes={review.votes}
-              category={review.category}
-            />
-          );
+          return <ReviewCard key={review.review_id} {...review} />;
         })}
       </section>
     </>
