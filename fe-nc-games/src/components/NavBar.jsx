@@ -4,6 +4,9 @@ function Navbar() {
   return (
     <>
       <section >
+        <Link to="/login">
+          <button className='box'>Login</button>
+        </Link>
         <Link to="/">
           <button className='box'>Reviews</button>
         </Link>

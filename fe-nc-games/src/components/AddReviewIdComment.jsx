@@ -1,71 +1,46 @@
-import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import postReviewIdComment from '../utils/postReviewIdComment';
-import CommentsList from './CommentsList';
 
-const AddReviewIdComment = ({ setCommentsList }) => {
+const AddReviewIdComment = () => {
   const { review_id } = useParams();
-//   const [newComment, setNewComment] = useState({
-//     review_id: `${review_id}`,
-//     author: '',
-//     body: '',
-//   });
+  const navigate = useNavigate();
 
-//   handleChange = (e) => {
-//     setNewComment({
-//       ...newComment,
-//       [e.target.author]: value,
-//       [e.target.body]: value,
-//     });
-//   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  console.log('AddReviewComment setCommentsList:', setCommentsList);
-  // setCommentsList(newComment)
-  // handleSubmit(e){
-  //     e.preventDefault();
-  //     // useEffect(() => {
-  //     //     postReviewIdComment()
-  //     //       review_id,
-  //     //       author,
-  //     //       body,
-  //     //     })
-  //     //   }, [author, body]);
-  //     // };
+    const newComment = {
+      username: e.target[0].value,
+      body: e.target[1].value,
+    };
 
-  // }
+    postReviewIdComment(review_id, newComment)
+      .then((response) => {
+        console.log('Comment posted successfully!');
+        navigate(`/reviews/${review_id}`);
+      })
+      .catch((error) => {
+        console.log(error.response.status, error.response.data.msg);
+        navigate(`/error-user-not-found`);
+      });
+  };
 
   return (
     <>
       <section className="box">
         <h2>Add your comment below:</h2>
       </section>
-      <form className="box" action="">
-        {/* <form onSubmit={handleSubmit}> */}
+      <form className="box" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="">Name</label>
-          <input
-            type="text"
-            name="author"
-            id=""
-            required
-            // onChange={handleChange}
-          />
-          {/* {console.log(input)} */}
+          <input type="text" name="author" id="" required />
         </div>
         <div>
           <label htmlFor="">Comment</label>
-          <textarea
-            type="text"
-            name="body"
-            id=""
-            required
-            // onChange={handleChange}
-          />
+          <textarea type="text" name="body" id="" required />
         </div>
         <div>
-          <Link to={`/reviews/${review_id}`}>
-            <button> Submit Comment</button>
-          </Link>
+          <button type="submit"> Submit Comment</button>
         </div>
       </form>
     </>
