@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import postReviewIdComment from '../utils/postReviewIdComment';
+
+
 
 const AddReviewIdComment = () => {
   const { review_id } = useParams();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const [newComment, setNewComment] = useState({})
+
+const handleNameChange = (event) => {
+  event.preventDefault();
+
+
+
+}
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
     const newComment = {
       username: e.target[0].value,
@@ -27,13 +38,13 @@ const AddReviewIdComment = () => {
 
   return (
     <>
-      <section className="box">
+      <section className="container">
         <h2>Add your comment below:</h2>
       </section>
-      <form className="box" onSubmit={handleSubmit}>
+      <form className="container" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="">Name</label>
-          <input type="text" name="author" id="" required />
+          <input type="text" name="author" id="" required onChange={handleNameChange}/>
         </div>
         <div>
           <label htmlFor="">Comment</label>

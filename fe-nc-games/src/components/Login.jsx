@@ -1,10 +1,10 @@
 const Login = () => {
   return (
     <>
-      <section className="box">
+      <section className="container">
         <h2>Login</h2>
       </section>
-      <form className="box">
+      <form className="container">
         <div>
           <label htmlFor="">Username</label>
           <input type="text" name="username" id="" required />
@@ -17,7 +17,7 @@ const Login = () => {
           <button type="submit">Login</button>
         </div>
       </form>
-      <section className="box">
+      <section className="container">
         <h2>Don't have an account yet, sign up below:</h2>
         <div>
           <button type="submit">Sign Up!</button>

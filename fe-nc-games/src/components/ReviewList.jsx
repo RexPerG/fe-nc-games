@@ -21,7 +21,7 @@ function ReviewList() {
 
   return (
     <>
-      <section>
+      <section style={{ scroll: true, height: 300, overflow: "scroll", overflowX: "hidden"}}>
         {reviewList.map((review) => {
           return <ReviewCard key={review.review_id} {...review} />;
         })}
