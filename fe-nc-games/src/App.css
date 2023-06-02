@@ -50,3 +50,12 @@ body {
   border: 2px solid rgb(255, 255, 255);
   font-size: 2vw;
 }
+
+.errorMessage {
+  font-size: 18px;
+  color: #292b2c;
+  background-color: #e4562b;
+  padding: 0 20px;
+  border: 2px solid black;
+  font-size: 1vw;
+}

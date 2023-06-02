@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import IndividualReviewDetails from './IndividualReviewDetails';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -40,13 +40,14 @@ function IndividualReviewPage() {
           created_at={reviewDetails.created_at}
         />
       </section>
-      <section >
-      <h2>Comments</h2>
+      <section>
+        <h2>Comments</h2>
         <CommentsList key={review_id} />
       </section>
       <section>
-        <input type="text" typeof="onSubmit" />
-        <button>Add New Comment</button>
+        <Link to={`/reviews/${review_id}/add-new-comment`}>
+          <button> Add New Comment</button>
+        </Link>
       </section>
     </section>
   );
